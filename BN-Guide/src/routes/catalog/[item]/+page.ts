@@ -1,5 +1,4 @@
 export const load = ({fetch, params}) => {
-  console.log(params)
   const fetchItems = async (id:string) => {
     const response = await fetch(`https://api.github.com/repos/cataclysmbnteam/Cataclysm-BN/contents/data/json/items/${id}`)
     const data = await response.json()
@@ -24,7 +23,6 @@ export const load = ({fetch, params}) => {
       console.log(err)
     }
   }
-
   return {
     items: itemList(params.item)
   }
