@@ -11,7 +11,7 @@
 	<!-- promise was fulfilled -->
   <ul>
   {#each items as item, i}
-    <li><a href="/catalog/{slug}/{item.name}">{item.name}</a></li>
+    <li><a href="/catalog/{slug}/{item.name}">{item.name.split('.json')[0]}</a></li>
   {/each}
   </ul>
   <!-- {#if arr.length > 0} 
