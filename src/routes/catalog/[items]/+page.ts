@@ -24,6 +24,7 @@ export const load = ({fetch, params}) => {
     }
   }
   return {
-    items: itemList(params.item)
+    items: fetchItems(params.items),
+    slug: params.items,
   }
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
   export let data: any
-  const {items} = data
-  import Item from "./Item.svelte";
+  const {items, slug} = data
+  console.log(slug)
 </script>
 
 {#await items}
@@ -9,15 +9,19 @@
 	<p>waiting for the promise to resolve...</p>
 {:then items}
 	<!-- promise was fulfilled -->
-  {#each items as arr, i}
-  {#if arr.length > 0} 
+  <ul>
+  {#each items as item, i}
+    <li><a href="/catalog/{slug}/{item.name}">{item.name}</a></li>
+  {/each}
+  </ul>
+  <!-- {#if arr.length > 0} 
     {#each arr as item, i}
       <Item data={item} />
     {/each} 
   {:else}
       <Item data={arr} />
-  {/if}
-  {/each}
+  {/if} -->
+
 {:catch error}
 	<!-- promise was rejected -->
 	<p>Something went wrong: {error.message}</p>
